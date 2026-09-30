@@ -70,6 +70,8 @@
   gap: 20px;
 }
 .news-card {
+  display: flex;
+  flex-direction: column;
   background: #f7f8fd;
   border-radius: 24px;
   overflow: hidden;
@@ -95,6 +97,10 @@
 }
 .news-body {
   padding: 34px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
 }
 .news-meta {
   display: flex;
@@ -110,8 +116,13 @@
   line-height: 22px;
   letter-spacing: -0.6px;
   font-weight: 600;
-  min-height: 110px;
-  margin-top: 30px;
+  margin-top: 22px;
+}
+.news-summary {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text);
+  margin: 14px 0 24px;
 }
 .text-link {
   display: inline-flex;
@@ -132,7 +143,7 @@
   height: 22px;
 }
 .news-body .text-link {
-  margin-top: 24px;
+  margin-top: auto;
 }
 .news-dialog {
   background: white !important;
@@ -231,6 +242,9 @@
   opacity: 0.38;
   filter: grayscale(1);
 }
+.audience-tabs button > span {
+  display: block;
+}
 .audience-tabs button.active img {
   opacity: 1;
   filter: none;
@@ -285,6 +299,34 @@
 }
 .audience-copy .primary {
   margin-top: auto;
+}
+.audience-proof {
+  border-left: 3px solid #00c9b6;
+  background: #f3fbfa;
+  border-radius: 0 10px 10px 0;
+  padding: 11px 13px;
+  margin: 17px 0 14px;
+  width: 100%;
+  max-width: 340px;
+}
+.audience-proof > span {
+  display: block;
+  color: #507269;
+  font-size: 11px;
+  line-height: 15px;
+}
+.audience-proof strong {
+  display: block;
+  color: var(--ink);
+  font-size: 21px;
+  line-height: 25px;
+  letter-spacing: -0.5px;
+  margin-top: 4px;
+}
+.audience-proof p {
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 16px;
 }
 .audience-visual {
   width: 100%;
@@ -730,26 +772,19 @@
   max-width: 225px;
 }
 .technologies {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr 0.65fr;
-  align-items: start;
-  gap: 32px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
   padding: 0 34px;
   margin-top: 50px;
 }
-.technologies > div {
-  border-top: 1px solid #dcece8;
-  padding-top: 16px;
-}
-.technologies span {
-  color: #008f87;
-  font-size: 11px;
-}
-.technologies p {
-  margin-top: 8px;
-  font-size: 15px;
-  line-height: 22px;
-  color: var(--ink);
+.technologies img {
+  flex: 0 0 auto;
+  max-width: 27px;
+  height: 25px;
+  object-fit: contain;
 }
 .independence {
   border-radius: 56px 56px 0 0;
@@ -933,6 +968,10 @@
   font-size: 10px;
   letter-spacing: -0.3px;
   margin-left: 2px;
+}
+.case-comparison strong.metric-manual {
+  font-size: 16px;
+  letter-spacing: -0.5px;
 }
 .case-comparison-text strong {
   font-size: 18px;

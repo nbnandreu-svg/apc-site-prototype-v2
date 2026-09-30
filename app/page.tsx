@@ -164,16 +164,16 @@ export default function Home() {
           <div className="hero-bottom">
             <div className="stats">
               <div>
-                <strong>ЕЦП АПК</strong>
-                <span>Разработка отраслевой платформы</span>
+                <strong><CountUp value={120000} suffix="+" grouped /></strong>
+                <span>Пользователей</span>
               </div>
               <div>
-                <strong>ГИС</strong>
-                <span>Карты, реестры и обмен данными</span>
+                <strong><CountUp value={100} suffix="+" /></strong>
+                <span>Продуктов и решений</span>
               </div>
               <div>
-                <strong>ИИ</strong>
-                <span>Документы и производственная аналитика</span>
+                <strong><CountUp value={200} suffix="+" /></strong>
+                <span>Специалистов</span>
               </div>
             </div>
             <div className="hero-links">
@@ -217,9 +217,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="hero-art-caption">
-            Пример визуализации. Данные условные.
-          </p>
         </div>
       </section>
       <div id="partners" className="partners" aria-label="Партнеры">
