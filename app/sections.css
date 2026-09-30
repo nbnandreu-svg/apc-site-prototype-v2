@@ -1441,6 +1441,12 @@ details[open] > summary {
     aspect-ratio: auto;
     height: 28vw;
   }
+  .product-stage .product-copy.long-copy {
+    top: 128px;
+  }
+  .product-stage .product-copy .primary {
+    margin-top: 16px;
+  }
   .product-stage .product-details {
     padding-top: 20px;
   }
