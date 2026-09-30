@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { Landmark, MapPinned, Network, Wheat, Fence, Bird, Milk, Beef, Droplets, FlaskConical, Sprout, GraduationCap, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ASSETS } from '@/lib/assets';
@@ -129,6 +130,11 @@ const audiences = [
   {
     title: 'От мониторинга отрасли до цифровых услуг',
     tabTitle: 'Органы управления и отраслевые союзы',
+    organizations: [
+      { label: 'Федеральные ведомства', icon: Landmark },
+      { label: 'Региональные органы АПК', icon: MapPinned },
+      { label: 'Отраслевые союзы', icon: Network },
+    ],
     description:
       'Объединяем сведения от предприятий, районов и ведомственных систем. Создаем аналитику для управления отраслью, электронные услуги и кабинеты участников, автоматизируем отчетность и обмен с ФГИС.',
     proof: { label: 'Республика Татарстан', metric: '2 недели → 2 дня', text: 'Сбор отчетности после модернизации региональной информационной системы.' },
@@ -136,6 +142,11 @@ const audiences = [
   {
     title: 'Управление хозяйством: от плана до себестоимости',
     tabTitle: 'Агрохолдинги и сельхозпредприятия',
+    organizations: [
+      { label: 'Растениеводство', icon: Wheat },
+      { label: 'Животноводство', icon: Fence },
+      { label: 'Птицеводство', icon: Bird },
+    ],
     description:
       'Помогаем планировать работы и ресурсы, контролировать производство и себестоимость в растениеводстве и животноводстве. Подбираем отраслевое ПО, связываем его с 1С и ФГИС, дорабатываем под процессы хозяйства.',
     proof: { label: 'АгроТерра · интеграция с ФГИС "Зерно"', metric: '20 часов → 15 минут', text: 'Время работы с отчетностью в неделю после внедрения интеграционного модуля.' },
@@ -143,6 +154,12 @@ const audiences = [
   {
     title: 'Производство, качество и движение продукции',
     tabTitle: 'Перерабатывающие предприятия',
+    organizations: [
+      { label: 'Молочные заводы', icon: Milk },
+      { label: 'Мясопереработка', icon: Beef },
+      { label: 'Зернопереработка', icon: Wheat },
+      { label: 'Масложировые предприятия', icon: Droplets },
+    ],
     description:
       'Связываем заказы, план выпуска, сырье и складской учет. Автоматизируем контроль качества и прослеживаемость, помогаем выявлять причины потерь и отклонений: от приемки сырья до отгрузки готовой продукции.',
     proof: { label: 'Пример решения', metric: 'AI "Паспорт партии"', text: 'Связь готовой продукции с партиями сырья, производственной сменой и контролем качества.' },
@@ -150,6 +167,12 @@ const audiences = [
   {
     title: 'Цифровая среда для науки и образования',
     tabTitle: 'Научные и образовательные организации',
+    organizations: [
+      { label: 'НИИ', icon: FlaskConical },
+      { label: 'Селекционные центры', icon: Sprout },
+      { label: 'Вузы', icon: GraduationCap },
+      { label: 'Колледжи', icon: BookOpen },
+    ],
     description:
       'Автоматизируем сбор исследовательских данных, расчеты и анализ результатов. Для вузов создаем практические учебные модули, обучаем преподавателей, внедряем ИИ, отраслевые ГИС и перевод занятий.',
     proof: { label: 'ФНЦ ВНИТИП', metric: 'В 10 раз быстрее', text: 'Селекционные расчеты после внедрения платформы управления селекцией птицы.' },
@@ -233,11 +256,21 @@ function Audiences() {
                     </div>
                     <CTA>Обсудить задачу</CTA>
                   </div>
-                  <img
-                    className="audience-visual"
-                    src={A + `audience-${i}.webp`}
-                    alt={a.tabTitle}
-                  />
+                  <div className="audience-illustration">
+                    <img
+                      className="audience-visual"
+                      src={A + `audience-${i}.webp`}
+                      alt={a.tabTitle}
+                    />
+                    <ul className={`audience-types audience-types-${a.organizations.length}`} aria-label="Кому подходит направление">
+                      {a.organizations.map(({ label, icon: Icon }) => (
+                        <li key={label}>
+                          <span className="audience-type-icon" aria-hidden="true"><Icon size={24} strokeWidth={1.6} /></span>
+                          <span className="audience-type-label">{label}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </article>
               ))}
             </div>
